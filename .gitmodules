@@ -1,0 +1,3 @@
+[submodule "etiss"]
+	path = etiss
+	url = https://github.com/JoGei/etiss.git
