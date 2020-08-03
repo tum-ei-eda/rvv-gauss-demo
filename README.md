@@ -47,12 +47,6 @@ export RISCVV=`pwd`/installed
 
 ## Setup
 
-### Load rvv-hl sources to simulation ETISS
-
-```
-sh configure_etiss.sh
-```
-
 ### Build simulation ETISS
 
 1. `cd <dir>/etiss`
@@ -78,10 +72,16 @@ sh configure_etiss.sh
 
 ### Out of box
 
+Change into VM directory:
+
+```
+cd <dir>/vm
+```
+
 The variable `<run-proc>` refers to the processor helper script:
 
 ```
-<run-proc>:=<dir>/vm/run_helper.sh
+<run-proc>:=./run_helper.sh
 ```
 
 - Simple: 
