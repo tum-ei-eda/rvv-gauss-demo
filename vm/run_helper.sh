@@ -109,7 +109,7 @@ if [ "${USE_TGDB}" -eq 1 ]; then
 fi
 if [ "${USE_GDB}" -eq 1 ]; then
     gdb --args ${VP_EXE} ${ARGS}
-elif [ "${USE_RGDB}" -eq 1 ]; then
+elif [ "${USE_TGDB}" -eq 1 ]; then
     gdbserver :2345 ${VP_EXE} ${ARGS}
 else
     ${VP_EXE} ${ARGS}
