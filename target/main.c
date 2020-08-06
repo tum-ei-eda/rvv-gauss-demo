@@ -17,7 +17,7 @@
 /*
  * 
  * Gaussian Elimination Algorithm with Inline Assembly RVV0.9 
- * for Classical McEliece with parameters 6960,119
+ * for Classical McEliece with parameters 6960,119 | 8192,128 | 6688,128
  * 
  */
 
@@ -29,7 +29,7 @@
 	#define  SYS_T 128
 	#define  SYS_N 8192
 #else
-	#ifdef MCELIECE_6190119
+	#ifdef MCELIECE_6960119
 		#define  SYS_T 119
 		#define  SYS_N 6960
 	#else //MCELIECE_6688128
@@ -139,8 +139,8 @@ int main()
 #ifdef MCELIECE_8192128
 		#include "matrix_begin8192128.data"
 #else
-	#ifdef MCELIECE_6190119
-		#include "matrix_begin6190119.data"
+	#ifdef MCELIECE_6960119
+		#include "matrix_begin6960119.data"
 	#else //MCELIECE_6688128
 		#include "matrix_begin6688128.data"
 	#endif

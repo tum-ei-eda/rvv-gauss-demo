@@ -63,11 +63,11 @@ export RISCVV=`pwd`/installed
 
 ### Build the target software
 
-Choose the McEliece matrix dimensions (<6688128,8192128,6190119>) with the cmake configuration or leave the variable out for default (6190x119).
+Choose the McEliece matrix dimensions (<6688128,8192128,6960119>) with the cmake configuration or leave the variable out for default (6960x119).
 
 1. `cd <dir>/target`
 2. `mkdir build && cd build`
-3. `cmake -DRISCV_ELF_GCC_PREFIX=<rvv-gnu-toolchain> [-DCMAKE_BUILD_TYPE=Debug] [-DMCE_DIMi=<6688128,8192128,6190119>] ..`
+3. `cmake -DRISCV_ELF_GCC_PREFIX=<rvv-gnu-toolchain> [-DCMAKE_BUILD_TYPE=Debug] [-DMCE_DIMi=<6688128,8192128,6960119>] ..`
 4. `make`
 
 ## Simulate
@@ -120,7 +120,7 @@ The variable `<run-proc>` refers to the processor helper script:
 	3. Reconfigure build
 		```
 		cd <dir>/target/build
-		cmake -DRISCV_ELF_GCC_PREFIX=<rvv-gnu-toolchain> [-DCMAKE_BUILD_TYPE=Debug] [-DMCE_DIM=<6688128,8192128,6190119>] ..
+		cmake -DRISCV_ELF_GCC_PREFIX=<rvv-gnu-toolchain> [-DCMAKE_BUILD_TYPE=Debug] [-DMCE_DIM=<6688128,8192128,6960119>] ..
 		make 
 		```
 
