@@ -58,14 +58,16 @@ export RISCVV=`pwd`/installed
 
 1. `cd <dir>/vm`
 2. `mkdir build && cd build`
-3. `cmake -DETISS_PREFIX=`pwd`/../../etiss/build/installed -DCMAKE_BUILD_TYPE=Release ..`
+3. ```cmake -DETISS_PREFIX=`pwd`/../../etiss/build/installed -DCMAKE_BUILD_TYPE=Release ..```
 4. `make`
 
 ### Build the target software
 
+Choose the McEliece matrix dimensions (<6688128,8192128,6190119>) with the cmake configuration or leave the variable out for default (6190x119).
+
 1. `cd <dir>/target`
 2. `mkdir build && cd build`
-3. `cmake -DRISCV_ELF_GCC_PREFIX=<rvv-gnu-toolchain> -DCMAKE_BUILD_TYPE=Debug  ..`
+3. `cmake -DRISCV_ELF_GCC_PREFIX=<rvv-gnu-toolchain> [-DCMAKE_BUILD_TYPE=Debug] [-DMCE_DIMi=<6688128,8192128,6190119>] ..`
 4. `make`
 
 ## Simulate
@@ -105,10 +107,10 @@ The variable `<run-proc>` refers to the processor helper script:
 
 ### Develop
 
-`<rvv-gnu-toolchain>` supports assembly only. The `<dir>/target` project is configured by its CMake build configuration to handle assembly automatically. The following easy software dev are suggested:
+`<rvv-gnu-toolchain>` supports assembly only for RVV instructions. The `<dir>/target` project is configured by its CMake build configuration to handle assembly automatically. The following easy software dev are suggested:
 
 - Easy - Modify existing files 
-	1. Alter `<dir>/target/rvvtest.s` and/or `<dir>/target/main.c`
+	1. `<dir>/target/main.c`
 	2. Build target software:
 		`make -C <dir>/target/build`
 
@@ -118,7 +120,7 @@ The variable `<run-proc>` refers to the processor helper script:
 	3. Reconfigure build
 		```
 		cd <dir>/target/build
-		cmake -DRISCV_ELF_GCC_PREFIX=<rvv-gnu-toolchain> -DCMAKE_BUILD_TYPE=Debug  ..
+		cmake -DRISCV_ELF_GCC_PREFIX=<rvv-gnu-toolchain> [-DCMAKE_BUILD_TYPE=Debug] [-DMCE_DIM=<6688128,8192128,6190119>] ..
 		make 
 		```
 
